@@ -9,6 +9,7 @@ import io.renren.common.utils.PageUtils;
 import io.renren.common.utils.Query;
 
 import io.renren.modules.school.dao.XxDormitoryStudentDao;
+import io.renren.modules.school.entity.XxDormitoryEntity;
 import io.renren.modules.school.entity.XxDormitoryStudentEntity;
 import io.renren.modules.school.service.XxDormitoryStudentService;
 
@@ -18,10 +19,10 @@ public class XxDormitoryStudentServiceImpl extends ServiceImpl<XxDormitoryStuden
 
     @Override
     public PageUtils queryPage(Map<String, Object> params) {
+    	
         IPage<XxDormitoryStudentEntity> page = this.page(
                 new Query<XxDormitoryStudentEntity>().getPage(params),
-                new QueryWrapper<XxDormitoryStudentEntity>()
-        );
+                new QueryWrapper<XxDormitoryStudentEntity>());
 
         return new PageUtils(page);
     }

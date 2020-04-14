@@ -86,5 +86,14 @@ public class XxSchoolController {
 
         return R.ok();
     }
-
+    /**
+     * 学校编码校验
+     */
+    @RequestMapping("/findcode")
+    public R findcode(int code) {
+    	boolean codeOk=xxSchoolService.findcode(code);
+    	//code=1的时候存在   返回false
+    	//code=0的时候不存在   返回true
+    	return R.ok().put("codeOk", codeOk);
+    }
 }

@@ -12,5 +12,7 @@
         <result property="crtTime" column="crt_time"/>
     </resultMap>
 
-
+	<select id="findCode" parameterType="Integer" resultType="Integer">
+		select count(code) from xx_school where code=#{code} 
+	</select>
 </mapper>

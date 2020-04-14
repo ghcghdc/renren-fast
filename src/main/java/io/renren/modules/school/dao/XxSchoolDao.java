@@ -14,4 +14,5 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface XxSchoolDao extends BaseMapper<XxSchoolEntity> {
 	
+	int findCode(Integer code);
 }

@@ -7,7 +7,6 @@ import io.renren.modules.school.entity.XxSchoolEntity;
 import java.util.Map;
 
 /**
- * ѧУ?
  *
  * @author wufusheng
  * @email ghcghdc@mail.com
@@ -16,6 +15,7 @@ import java.util.Map;
 public interface XxSchoolService extends IService<XxSchoolEntity> {
 
     PageUtils queryPage(Map<String, Object> params);
+    boolean findcode(Integer code);
     
 }
 
