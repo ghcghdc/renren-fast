@@ -1,6 +1,8 @@
 package io.renren.modules.school.controller;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.shiro.authz.annotation.RequiresPermissions;
@@ -12,7 +14,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.renren.modules.school.entity.XxDormitoryEntity;
+import io.renren.modules.school.entity.XxDormitoryStudentEntity;
+import io.renren.modules.school.entity.XxStudentEntity;
 import io.renren.modules.school.service.XxDormitoryService;
+import io.renren.modules.school.service.XxDormitoryStudentService;
+import io.renren.modules.school.service.XxSchoolService;
 import io.renren.common.utils.PageUtils;
 import io.renren.common.utils.R;
 
@@ -30,7 +36,8 @@ import io.renren.common.utils.R;
 public class XxDormitoryController {
     @Autowired
     private XxDormitoryService xxDormitoryService;
-
+    @Autowired
+    private XxSchoolService xxSchoolService;
     /**
      * 列表
      */
@@ -38,6 +45,17 @@ public class XxDormitoryController {
     @RequiresPermissions("school:xxdormitory:list")
     public R list(@RequestParam Map<String, Object> params){
         PageUtils page = xxDormitoryService.queryPage(params);
+        
+        //实例化page封装对象
+        XxDormitoryEntity xDE=new XxDormitoryEntity();
+        //遍历page中的list集合
+        for(int i=0;i<page.getList().size();i++) {
+        	
+        	//将list集合封装到对象中
+        	xDE=(XxDormitoryEntity) page.getList().get(i);
+        	//根据sid查询学校名字
+        	xDE.setSchoolName(xxSchoolService.FindName(xDE.getSid()));
+        }
 
         return R.ok().put("page", page);
     }
@@ -85,6 +103,24 @@ public class XxDormitoryController {
 		xxDormitoryService.removeByIds(Arrays.asList(ids));
 
         return R.ok();
+    }
+    /**
+     * 宿舍编码校验
+     */
+    @RequestMapping("/findcode")
+    public R findcode(int code) {
+    	boolean codeOk=xxDormitoryService.findcode(code);
+    	//code=1的时候存在   返回false
+    	//code=0的时候不存在   返回true
+    	return R.ok().put("codeOk", codeOk);
+    }
+    /**
+     * 级联下拉选择学校
+     */
+    @RequestMapping("/findSchoolName")
+    public R findSchoolName() {
+    	String schoolName="南昌大学";
+    	return R.ok().put("schoolName", schoolName);
     }
 
 }

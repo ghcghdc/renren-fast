@@ -10,5 +10,11 @@
         <result property="sid" column="sid"/>
     </resultMap>
 
-
+	<insert id="insertSAndD" parameterType="io.renren.modules.school.entity.XxDormitoryStudentEntity">
+		insert into xx_dormitory_student(did,sid) values(#{did},#{sid})
+	</insert>
+	
+	<select id="queryAll" resultType="io.renren.modules.school.entity.XxDormitoryStudentEntity">
+		select * from xx_dormitory_student
+	</select>
 </mapper>

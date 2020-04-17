@@ -16,5 +16,8 @@ import java.util.Map;
 public interface XxDormitoryService extends IService<XxDormitoryEntity> {
 
     PageUtils queryPage(Map<String, Object> params);
+    boolean findcode(Integer code);
+    int findIdByCode(Integer code);
+    String FindName(int sid);
 }
 

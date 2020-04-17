@@ -15,6 +15,16 @@
         <result property="updUser" column="upd_user"/>
         <result property="updTime" column="upd_time"/>
     </resultMap>
+	
+	<select id="findCode" parameterType="Integer" resultType="Integer">
+		select count(code) from xx_dormitory where code=#{code} 
+	</select>
+	
+	<select id="findIdByCode" parameterType="Integer" resultType="Integer">
+		select id from xx_dormitory where code=#{code} 
+	</select>
 
-
+	<select id="findName" parameterType="Integer" resultType="String">
+		select name from xx_dormitory where id=#{id} 
+	</select>
 </mapper>

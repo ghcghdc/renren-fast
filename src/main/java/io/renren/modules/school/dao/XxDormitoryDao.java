@@ -14,4 +14,7 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface XxDormitoryDao extends BaseMapper<XxDormitoryEntity> {
 	
+	int findCode(Integer code);
+	int findIdByCode(Integer code);
+	String findName(int sid);
 }

@@ -36,7 +36,6 @@ public class XxSchoolController {
     @RequestMapping("/list") 
     @RequiresPermissions("school:xxschool:list")
     public R list(@RequestParam Map<String, Object> params){
-    	System.out.println("打印-------------------------"+params.get("name"));
         PageUtils page = xxSchoolService.queryPage(params);
 
         return R.ok().put("page", page);

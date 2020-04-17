@@ -5,6 +5,7 @@ import java.util.Date;
 
 import javax.validation.constraints.NotBlank;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -63,5 +64,16 @@ public class XxStudentEntity implements Serializable {
 	 */
 	@JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")			//设置传入时间为年-月-日
 	private Date updTime;
+	
+	//学校名称非数据库内容
+	
+	@TableField(exist = false)
+	private String schoolName;
+	
+	//宿舍名称非数据库内容
+	
+	@TableField(exist = false)
+	private String dormitoryName;
+
 
 }

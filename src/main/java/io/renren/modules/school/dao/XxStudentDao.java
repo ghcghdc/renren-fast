@@ -1,8 +1,12 @@
 package io.renren.modules.school.dao;
 
-import io.renren.modules.school.entity.XxStudentEntity;
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
+
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+
+import io.renren.modules.school.entity.XxStudentEntity;
 
 /**
  * ѧ???
@@ -14,4 +18,9 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface XxStudentDao extends BaseMapper<XxStudentEntity> {
 	
+	int findCode(Integer code);
+	//id重新排序
+	void autoId();
+	//多表联查
+	List<XxStudentEntity> findAll();
 }

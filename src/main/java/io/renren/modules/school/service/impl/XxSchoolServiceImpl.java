@@ -41,5 +41,19 @@ public class XxSchoolServiceImpl extends ServiceImpl<XxSchoolDao, XxSchoolEntity
     	}
 
     }
+    /*
+     * 根据code查id
+     */
+	@Override
+	public int findIdByCode(Integer code) {
+		return xxSchoolDao.findIdByCode(code);
+	}
+	/*
+	 * 根据code查名字
+	 */
+	@Override
+	public String FindName(int sid) {
+		return xxSchoolDao.findName(sid);
+	}
 
 }
