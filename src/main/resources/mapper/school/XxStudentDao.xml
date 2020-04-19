@@ -16,14 +16,11 @@
         <result property="updTime" column="upd_time"/>
     </resultMap>
     
-	<select id="findCode" parameterType="Integer" resultType="Integer">
-		select count(code) from xx_student where code=#{code} 
-	</select>
-	<select id="autoId">
-		alter table xx_student AUTO_INCREMENT=1
-	</select>
-	<select id="findAll" resultType="io.renren.modules.school.entity.XxStudentEntity">
+	<!-- <select id="findAll" resultType="io.renren.modules.school.entity.XxStudentEntity">
 		select t.*,d.name as dormitoryName,s.name as schoolName from xx_student t, xx_school s, xx_dormitory d,xx_dormitory_student sd where d.id=sd.sid and s.id=sd.did
+	</select> -->
+	<select id="findMaxId" resultType="Integer">
+		select max(id) from xx_student
 	</select>
 
 </mapper>

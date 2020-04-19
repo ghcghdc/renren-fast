@@ -75,5 +75,13 @@ public class XxStudentEntity implements Serializable {
 	@TableField(exist = false)
 	private String dormitoryName;
 
-
+	//学校名称非数据库内容
+	
+	@TableField(exist = false)
+	private int sid;
+	
+	//宿舍名称非数据库内容
+	
+	@TableField(exist = false)
+	private int did;
 }

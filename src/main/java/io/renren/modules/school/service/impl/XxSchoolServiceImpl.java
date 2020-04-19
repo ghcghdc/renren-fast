@@ -3,6 +3,8 @@ package io.renren.modules.school.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 import java.util.Map;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -54,6 +56,15 @@ public class XxSchoolServiceImpl extends ServiceImpl<XxSchoolDao, XxSchoolEntity
 	@Override
 	public String FindName(int sid) {
 		return xxSchoolDao.findName(sid);
+	}
+	/**
+	 * 查询学校名字和id
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<XxSchoolEntity> findNameAndID() {
+		
+		return (List<XxSchoolEntity>) xxSchoolDao.findNameAndID();
 	}
 
 }

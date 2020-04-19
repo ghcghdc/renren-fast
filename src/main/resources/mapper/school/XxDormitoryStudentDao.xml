@@ -9,12 +9,16 @@
         <result property="did" column="did"/>
         <result property="sid" column="sid"/>
     </resultMap>
-
-	<insert id="insertSAndD" parameterType="io.renren.modules.school.entity.XxDormitoryStudentEntity">
-		insert into xx_dormitory_student(did,sid) values(#{did},#{sid})
-	</insert>
 	
 	<select id="queryAll" resultType="io.renren.modules.school.entity.XxDormitoryStudentEntity">
 		select * from xx_dormitory_student
+	</select>
+	
+	<select id="findDidBySid" resultType="Integer">
+		select did from xx_dormitory_student where sid = #{sid}
+	</select>
+	
+	<select id="findIdBySid" parameterType="Integer" resultType="Integer">
+		select id from xx_dormitory_student where sid = #{sid}
 	</select>
 </mapper>

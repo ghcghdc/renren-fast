@@ -27,4 +27,13 @@
 	<select id="findName" parameterType="Integer" resultType="String">
 		select name from xx_dormitory where id=#{id} 
 	</select>
+	
+	<select id="findNameAndIdBySId" parameterType="Integer" resultType="io.renren.modules.school.entity.XxDormitoryEntity">
+		select name,id from xx_dormitory where sid=#{sid} 
+	</select>
+	
+	<select id="findSidById" parameterType="Integer" resultType="Integer">
+		select sid from xx_dormitory where id=#{id}
+	</select>
+	
 </mapper>

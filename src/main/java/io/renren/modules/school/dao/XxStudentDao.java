@@ -19,8 +19,6 @@ import io.renren.modules.school.entity.XxStudentEntity;
 public interface XxStudentDao extends BaseMapper<XxStudentEntity> {
 	
 	int findCode(Integer code);
-	//id重新排序
-	void autoId();
-	//多表联查
-	List<XxStudentEntity> findAll();
+	//查询最大的id
+	int findMaxId();
 }

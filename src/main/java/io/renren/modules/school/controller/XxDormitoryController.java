@@ -13,14 +13,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import io.renren.modules.school.entity.XxDormitoryEntity;
-import io.renren.modules.school.entity.XxDormitoryStudentEntity;
-import io.renren.modules.school.entity.XxStudentEntity;
-import io.renren.modules.school.service.XxDormitoryService;
-import io.renren.modules.school.service.XxDormitoryStudentService;
-import io.renren.modules.school.service.XxSchoolService;
 import io.renren.common.utils.PageUtils;
 import io.renren.common.utils.R;
+import io.renren.modules.school.entity.XxDormitoryEntity;
+import io.renren.modules.school.entity.XxSchoolEntity;
+import io.renren.modules.school.entity.XxStudentEntity;
+import io.renren.modules.school.service.XxDormitoryService;
+import io.renren.modules.school.service.XxSchoolService;
 
 
 
@@ -90,7 +89,7 @@ public class XxDormitoryController {
     @RequiresPermissions("school:xxdormitory:update")
     public R update(@RequestBody XxDormitoryEntity xxDormitory){
 		xxDormitoryService.updateById(xxDormitory);
-
+		
         return R.ok();
     }
 
@@ -119,8 +118,8 @@ public class XxDormitoryController {
      */
     @RequestMapping("/findSchoolName")
     public R findSchoolName() {
-    	String schoolName="南昌大学";
-    	return R.ok().put("schoolName", schoolName);
+    	List<XxSchoolEntity>schoolList=xxSchoolService.findNameAndID();
+        
+    	return R.ok().put("schoolList", schoolList);
     }
-
 }

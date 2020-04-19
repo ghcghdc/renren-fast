@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import io.renren.common.utils.PageUtils;
 import io.renren.modules.school.entity.XxSchoolEntity;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -18,6 +19,7 @@ public interface XxSchoolService extends IService<XxSchoolEntity> {
     boolean findcode(Integer code);
     int findIdByCode(Integer code);
     String FindName(int sid);
+    List<XxSchoolEntity> findNameAndID();
     
 }
 

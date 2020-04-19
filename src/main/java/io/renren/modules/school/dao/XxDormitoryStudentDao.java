@@ -6,7 +6,6 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
-import org.junit.Test;
 
 /**
  * ????ѧ???
@@ -18,8 +17,12 @@ import org.junit.Test;
 @Mapper
 public interface XxDormitoryStudentDao extends BaseMapper<XxDormitoryStudentEntity> {
 	
-	//插入中间表数据，宿舍id，学校id
-	void insertSAndD(XxDormitoryStudentEntity xxDormitoryStudentEntity);
 	//查询全部数据
 	List<XxDormitoryStudentEntity> queryAll();
+	
+	//根据学生id查宿舍id
+	int findDidBySid(int sid);
+	
+	// 根据学生id查id
+	int findIdBySid(int sid);
 }

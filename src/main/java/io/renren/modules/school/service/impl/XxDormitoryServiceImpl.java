@@ -1,5 +1,6 @@
 package io.renren.modules.school.service.impl;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,6 +61,22 @@ public class XxDormitoryServiceImpl extends ServiceImpl<XxDormitoryDao, XxDormit
 	public String FindName(int sid) {
 		
 		return dormitorDao.findName(sid);
+	}
+
+	/**
+	 * 根据sid查name
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<XxDormitoryEntity> findNameAndIdBySId(int sid) {
+		
+		return (List<XxDormitoryEntity>) dormitorDao.findNameAndIdBySId(sid);
+	}
+
+	@Override
+	public int findSidById(int id) {
+		
+		return dormitorDao.findSidById(id);
 	}
 
 }

@@ -2,6 +2,9 @@ package io.renren.modules.school.dao;
 
 import io.renren.modules.school.entity.XxSchoolEntity;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
 
 /**
@@ -19,4 +22,6 @@ public interface XxSchoolDao extends BaseMapper<XxSchoolEntity> {
 	int findIdByCode(Integer code);
 	
 	String findName(int sid);
+	
+	List<XxSchoolEntity> findNameAndID();
 }

@@ -23,4 +23,7 @@
 	<select id="findName" parameterType="Integer" resultType="String">
 		select name from xx_school where id=#{id} 
 	</select>
+	<select id="findNameAndID"  resultType="io.renren.modules.school.entity.XxSchoolEntity">
+		select name,id from xx_school 
+	</select>
 </mapper>

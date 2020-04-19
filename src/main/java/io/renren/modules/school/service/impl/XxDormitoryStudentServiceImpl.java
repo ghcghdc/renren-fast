@@ -1,8 +1,8 @@
 package io.renren.modules.school.service.impl;
 
-import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Map;
@@ -17,7 +17,7 @@ import io.renren.modules.school.dao.XxDormitoryStudentDao;
 import io.renren.modules.school.entity.XxDormitoryStudentEntity;
 import io.renren.modules.school.service.XxDormitoryStudentService;
 
-
+@Transactional
 @Service("xxDormitoryStudentService")
 public class XxDormitoryStudentServiceImpl extends ServiceImpl<XxDormitoryStudentDao, XxDormitoryStudentEntity> implements XxDormitoryStudentService {
 
@@ -34,18 +34,25 @@ public class XxDormitoryStudentServiceImpl extends ServiceImpl<XxDormitoryStuden
         return new PageUtils(page);
     }
 
-    //中间表数据
-	@Override
-	public void insertSAndD(XxDormitoryStudentEntity xxDormitoryStudentEntity) {
-		
-		xxDormitoryStudentDao.insertSAndD(xxDormitoryStudentEntity);
-	}
-
 	//查询全部
 	@Override
 	public List<XxDormitoryStudentEntity> queryAll() {
 		
 		return xxDormitoryStudentDao.queryAll();
+	}
+
+	//根据学生id查宿舍id
+	@Override
+	public int findDidBySid(int sid) {
+		
+		return xxDormitoryStudentDao.findDidBySid(sid);
+	}
+
+	//根据学生id查id
+	@Override
+	public int findIdBySid(int sid) {
+		
+		return xxDormitoryStudentDao.findIdBySid(sid);
 	}
 
 }

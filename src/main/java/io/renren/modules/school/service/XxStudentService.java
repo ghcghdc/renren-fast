@@ -1,6 +1,5 @@
 package io.renren.modules.school.service;
 
-import java.util.List;
 import java.util.Map;
 
 import com.baomidou.mybatisplus.extension.service.IService;
@@ -17,8 +16,7 @@ import io.renren.modules.school.entity.XxStudentEntity;
 public interface XxStudentService extends IService<XxStudentEntity> {
 
     PageUtils queryPage(Map<String, Object> params);
-    boolean findcode(Integer code);
-    void insertStudent(XxStudentEntity xxStudentEntity);
-    List<XxStudentEntity> findAll();
+    //查询最大的id
+  	int findMaxId();
 }
 

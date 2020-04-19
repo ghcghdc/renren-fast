@@ -1,6 +1,5 @@
 package io.renren.modules.school.service.impl;
 
-import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,25 +31,9 @@ public class XxStudentServiceImpl extends ServiceImpl<XxStudentDao, XxStudentEnt
 	        IPage<XxStudentEntity> page = this.page(new Query<XxStudentEntity>().getPage(params), queryWrapper);
 	        return new PageUtils(page);
 	    }
-	  public boolean findcode(Integer code) {
-	    	int codeOk=xxStudentDao.findCode(code);
-	    	if(codeOk==1) {
-	    		return false;
-	    	}else {
-	    		return true;
-	    	}
-
-	    }
-	  //批量导入数据
-	public void insertStudent(XxStudentEntity xxStudentEntity) {
-		xxStudentDao.insert(xxStudentEntity);
-		xxStudentDao.autoId();
-	}
-	//多表联查
-	@Override
-	public List<XxStudentEntity> findAll() {
+	  
+	public int findMaxId() {
 		
-		return xxStudentDao.findAll();
+		return xxStudentDao.findMaxId();
 	}
-
 }

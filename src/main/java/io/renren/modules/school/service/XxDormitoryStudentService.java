@@ -18,7 +18,11 @@ public interface XxDormitoryStudentService extends IService<XxDormitoryStudentEn
 
     PageUtils queryPage(Map<String, Object> params);
     
-    void insertSAndD(XxDormitoryStudentEntity xxDormitoryStudentEntity);
     List<XxDormitoryStudentEntity> queryAll();
+    
+	//根据学生id查宿舍id
+	int findDidBySid(int sid);
+	
+	int findIdBySid(int sid);
 }
 

@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import io.renren.common.utils.PageUtils;
 import io.renren.modules.school.entity.XxDormitoryEntity;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -18,6 +19,8 @@ public interface XxDormitoryService extends IService<XxDormitoryEntity> {
     PageUtils queryPage(Map<String, Object> params);
     boolean findcode(Integer code);
     int findIdByCode(Integer code);
-    String FindName(int sid);
+    String FindName(int id);
+    List<XxDormitoryEntity> findNameAndIdBySId(int sid);
+    int findSidById(int id);
 }
 
